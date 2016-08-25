@@ -8,8 +8,13 @@ services:
       - 8080:80
     environment:
       WORDPRESS_DB_PASSWORD: example
+#  env_file:
+#    - auth.env
 
   mysql:
     image: mariadb:10.1.16
     environment:
       MYSQL_ROOT_PASSWORD: example
+#  env_file:
+#    - auth.env
+
