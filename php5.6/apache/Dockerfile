@@ -39,6 +39,10 @@ RUN set -x \
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+    
 # ENTRYPOINT resets CMD
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
