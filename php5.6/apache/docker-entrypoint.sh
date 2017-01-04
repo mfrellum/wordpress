@@ -164,5 +164,7 @@ if (!$mysql->query('CREATE DATABASE IF NOT EXISTS `' . $mysql->real_escape_strin
 $mysql->close();
 EOPHP
 fi
-su -s /bin/bash www-data -c '/usr/local/bin/install-wp-plugins.sh' 
+su -s /bin/bash www-data -c "/usr/local/bin/install-wp-plugins.sh \
+      --url=${WP_URL} --port=${WP_PORT} \
+      --title=${WP_TITLE}" 
 exec "$@"

@@ -28,6 +28,11 @@ VOLUME /var/www/html
 ENV WORDPRESS_VERSION 4.6.1
 ENV WORDPRESS_SHA1 027e065d30a64720624a7404a1820e6c6fff1202
 
+#Defaults. Used by entrypoint. Overwrite in eg. docker-compose.yml
+ENV WP_URL "http://localhost"
+ENV WP_PORT 8080
+ENV WP_TITLE "Test H5P"
+
 RUN set -x \
 	&& curl -o wordpress.tar.gz -fSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz" \
 	&& echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
